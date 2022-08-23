@@ -36,7 +36,7 @@ jobs:
         with:
           push: true
           tags: iyulabimages.azurecr.io/action-test-app:${{ github.sha }}
-          file: ./Dockerfile
+          file: ./src/ActionTestApp/Dockerfile
           context: ./
 
 
