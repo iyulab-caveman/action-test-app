@@ -31,12 +31,16 @@ jobs:
           username: ${{ secrets.ACTIONTESTAPP_REGISTRY_USERNAME }}
           password: ${{ secrets.ACTIONTESTAPP_REGISTRY_PASSWORD }}
 
+      - name: move dir
+        run:
+          cd src/ActionTestApp
+      
       - name: Build and push container image to registry
         uses: docker/build-push-action@v2
         with:
           push: true
           tags: iyulabimages.azurecr.io/action-test-app:${{ github.sha }}
-          file: ./src/ActionTestApp/Dockerfile
+          file: ./Dockerfile
           context: ./
 
 
